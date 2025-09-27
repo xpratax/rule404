@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/png" href="favicon.ico"> <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>REGRA 404</title>
   <style>
@@ -15,20 +15,16 @@
       color: #e6e6e6;
       transition: background 0.5s ease;
     }
-
     body.default-theme {
       background: radial-gradient(1200px 600px at 10% 10%, #071018 0%, transparent 15%),
                   radial-gradient(800px 400px at 90% 90%, #12080b 0%, transparent 15%),
                   #020203;
     }
-
-    /* Tema azul/rosa durante carregamento */
     body.loading-theme {
       background: radial-gradient(1200px 600px at 10% 10%, #001a33 0%, transparent 15%),
                   radial-gradient(800px 400px at 90% 90%, #330014 0%, transparent 15%),
                   #01010a;
     }
-
     .card {
       width: 100%;
       max-width: 980px;
@@ -39,19 +35,14 @@
       border: 1px solid rgba(255,255,255,0.03);
       transition: border-color 0.5s ease, box-shadow 0.5s ease;
     }
-
-    /* Tema neon padrão (verde/vermelho) */
     body.default-theme .card {
       border-color: rgba(168,255,122,0.25);
       box-shadow: 0 0 20px rgba(168,255,122,0.15), inset 0 0 10px rgba(255,122,122,0.1);
     }
-
-    /* Tema neon durante carregamento (azul/rosa) */
     body.loading-theme .card {
       border-color: rgba(100,180,255,0.3);
       box-shadow: 0 0 25px rgba(255,100,180,0.25), inset 0 0 12px rgba(100,180,255,0.15);
     }
-
     header {
       display: flex;
       flex-direction: column;
@@ -59,49 +50,45 @@
       margin-bottom: 20px;
       transition: color 0.5s ease;
     }
-
-    h1 {
-      font-size: 36px;
-      letter-spacing: 1px;
-      margin: 0;
-    }
-
-    /* Neon padrão */
+    h1 { font-size: 36px; letter-spacing: 1px; margin: 0; }
     body.default-theme .neon-title .text-green {
       color: #a8ff7a;
       text-shadow: 0 0 8px rgba(168,255,122,0.18), 0 0 18px rgba(168,255,122,0.12);
     }
-
     body.default-theme .neon-title .text-red {
       color: #ff7a7a;
       text-shadow: 0 0 8px rgba(255,122,122,0.14), 0 0 20px rgba(255,122,122,0.08);
     }
-
-    /* Neon carregando */
     body.loading-theme .neon-title .text-green {
       color: #66d9ff;
       text-shadow: 0 0 8px rgba(102,217,255,0.4), 0 0 20px rgba(102,217,255,0.2);
     }
-
     body.loading-theme .neon-title .text-red {
       color: #ff66b2;
       text-shadow: 0 0 8px rgba(255,102,178,0.4), 0 0 20px rgba(255,102,178,0.2);
     }
-
     .subtitle {
       color: #cfe8d4;
       opacity: 0.95;
       font-size: 20px;
       margin-top: 6px;
     }
-
+    /* Caixa de anúncios */
+    .ads-wrapper {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(168,255,122,0.25);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(168,255,122,0.15), inset 0 0 8px rgba(255,122,122,0.05);
+    }
+    .ads-wrapper h2 { font-size: 22px; margin: 0 0 12px 0; }
     .media-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
       margin-top: 18px;
     }
-
     .img-button {
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border-radius: 10px;
@@ -116,18 +103,8 @@
       border: 1px solid rgba(255,255,255,0.03);
       transition: transform .12s ease, box-shadow .12s ease;
     }
-
-    .img-button:hover {
-      transform: translateY(-6px);
-    }
-
-    .img-button img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
+    .img-button:hover { transform: translateY(-6px); }
+    .img-button img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
     .img-button .label {
       position: absolute;
       left: 12px;
@@ -140,7 +117,6 @@
       color: #fff;
       backdrop-filter: blur(4px);
     }
-
     .player-wrapper {
       margin-top: 22px;
       background: rgba(0,0,0,0.45);
@@ -149,14 +125,12 @@
       display: none;
       position: relative;
     }
-
     .player-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
     }
-
     .close-btn {
       background: transparent;
       border: 0;
@@ -165,7 +139,6 @@
       cursor: pointer;
       padding: 6px;
     }
-
     .player-iframe {
       width: 100%;
       height: 480px;
@@ -173,12 +146,10 @@
       margin-top: 12px;
       border-radius: 8px;
       background: #000;
-      display: none; /* escondido até carregar */
+      display: none;
       position: relative;
       z-index: 5;
     }
-
-    /* Barra de carregamento */
     .loading-bar-container {
       width: 100%;
       height: 6px;
@@ -187,14 +158,7 @@
       overflow: hidden;
       margin-top: 12px;
     }
-
-    .loading-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #00ffea, #ff00c8);
-      transition: width 0.2s;
-    }
-
+    .loading-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #00ffea, #ff00c8); transition: width 0.2s; }
     @media (max-width: 640px) {
       h1 { font-size: 28px; }
       .player-iframe { height: 240px; }
@@ -210,43 +174,42 @@
           <span class="text-red">— quem ignora buraco e prefeitura</span>
         </span>
       </h1>
-      <div class="subtitle">🥵🥵🥵🥵🥵🥵toda semana muda os videos🥵🥵🥵🥵🥵🥵.</div>
+      <div class="subtitle">🥵🥵🥵🥵🥵🥵toda semana muda os vídeos🥵🥵🥵🥵🥵🥵.</div>
     </header>
+
+    <!-- Caixa de anúncios carregando o conteúdo do ads.html -->
+    <div class="ads-wrapper" id="adsWrapper">
+      <h2 class="neon-title"><span class="text-green">📢 Atualizações Recentes</span></h2>
+      <div id="adsContent">Carregando...</div>
+    </div>
 
     <section>
       <div class="media-grid">
-        <!-- Imagem 1 -->
         <div class="img-button" data-video="https://www.xvideos.com/embedframe/utootbv3fe5">
           <img src="https://i.postimg.cc/fbvpLF7C/proib1.jpg" alt="Vídeo 1"/>
           <div class="label">Abrir vídeo 1</div>
         </div>
-
-        <!-- Imagem 2 -->
         <div class="img-button" data-video="https://www.xvideos.com/embedframe/kvbfpeked13">
           <img src="https://i.postimg.cc/8kY3jLvB/proib2.jpg" alt="Vídeo 2"/>
           <div class="label">Abrir vídeo 2</div>
         </div>
       </div>
 
-      <!-- Player -->
       <div class="player-wrapper" id="playerWrapper" aria-hidden="true">
         <div class="player-header">
           <div class="title">Player embutido</div>
           <button class="close-btn" id="closePlayer" aria-label="Fechar player">✕</button>
         </div>
-
-        <!-- Barra de carregamento -->
         <div class="loading-bar-container">
           <div class="loading-bar" id="loadingBar"></div>
         </div>
-
-        <!-- Vídeo -->
         <iframe id="videoIframe" class="player-iframe" src="" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
       </div>
     </section>
   </main>
 
   <script>
+    // --- Player de vídeo ---
     const imgButtons = document.querySelectorAll('.img-button');
     const playerWrapper = document.getElementById('playerWrapper');
     const iframe = document.getElementById('videoIframe');
@@ -254,14 +217,12 @@
     const loadingBar = document.getElementById('loadingBar');
     const body = document.body;
 
-    // Função para abrir player
     function openPlayer(url) {
       iframe.style.display = 'none';
       loadingBar.style.width = '0%';
       playerWrapper.style.display = 'block';
       playerWrapper.setAttribute('aria-hidden', 'false');
 
-      // Ativa tema de carregamento (azul/rosa)
       body.classList.remove('default-theme');
       body.classList.add('loading-theme');
 
@@ -277,26 +238,18 @@
       iframe.onload = () => {
         clearInterval(interval);
         loadingBar.style.width = '100%';
-
         setTimeout(() => {
           loadingBar.style.width = '0%';
           iframe.style.display = 'block';
-
-          // Volta para tema padrão
           body.classList.remove('loading-theme');
           body.classList.add('default-theme');
-
-          // Tenta abrir em tela cheia
-          if (iframe.requestFullscreen) {
-            iframe.requestFullscreen().catch(err => console.log("Erro fullscreen:", err));
-          }
+          if (iframe.requestFullscreen) iframe.requestFullscreen().catch(err => console.log("Erro fullscreen:", err));
         }, 300);
       };
 
       playerWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // Fechar player
     function closePlayer() {
       iframe.src = '';
       playerWrapper.style.display = 'none';
@@ -305,17 +258,17 @@
       body.classList.add('default-theme');
     }
 
-    imgButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const videoLink = btn.getAttribute('data-video');
-        openPlayer(videoLink);
-      });
-    });
-
+    imgButtons.forEach(btn => btn.addEventListener('click', () => openPlayer(btn.getAttribute('data-video'))));
     closeBtn.addEventListener('click', closePlayer);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closePlayer();
-    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePlayer(); });
+
+    // --- Carregar conteúdo do ads.html ---
+    const adsContent = document.getElementById('adsContent');
+    fetch('ads.html')
+      .then(res => { if (!res.ok) throw new Error('Falha ao carregar'); return res.text(); })
+      .then(data => { adsContent.innerHTML = data; })
+      .catch(err => { adsContent.innerHTML = `<span style="color:red;">Não foi possível carregar anúncios.</span>`; console.error(err); });
   </script>
 </body>
 </html>
+
